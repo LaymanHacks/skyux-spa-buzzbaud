@@ -1,6 +1,4 @@
-
-
-<table class="table table-hover"  *ngIf="bees">
+<table class="table table-hover" *ngIf="bees">
   <thead>
     <tr>
       <th></th>
@@ -12,17 +10,16 @@
   </thead>
   <tbody>
 
-    <tr *ngFor="let bee of bees"  (click)="showBee(bee)"
-   >
-    <td><i class="fas fa-edit" (click)="UpdateBee(bee); $event.stopPropagation();"></i></td>
-      <td>{{ bee.name }}</td>
-      <td>{{ bee.species }}</td>
-      <td>{{ bee.deadly?'Yes':'No'}}</td>
+    <tr *ngFor="let bee of bees" (click)="showBee(bee)">
+      <td><i class="fas fa-edit" (click)="UpdateBee(bee); $event.stopPropagation();"></i></td>
+      <td>{{ bee?.name }}</td>
+      <td>{{ bee?.species }}</td>
+      <td>{{ bee?.deadly?'Yes':'No'}}</td>
       <td><i class="far fa-trash-alt" (click)="deleteBee(bee); $event.stopPropagation();"></i></td>
     </tr>
   </tbody>
 </table>
-<hr/>
+<hr />
 <button (click)="CreateBee()">Create</button>
 <!--
 

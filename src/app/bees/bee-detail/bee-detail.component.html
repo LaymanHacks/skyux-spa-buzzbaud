@@ -1,26 +1,40 @@
-
 <sky-definition-list labelWidth="150px">
   <sky-definition-list-heading>
     Bee Information
   </sky-definition-list-heading>
   <sky-definition-list-content>
-    <sky-definition-list-label [title]="selectdBee.id">Name</sky-definition-list-label>
-    <sky-definition-list-value>{{ selectdBee.name}}</sky-definition-list-value></sky-definition-list-content>
-    <sky-definition-list-content>   <sky-definition-list-label>Description</sky-definition-list-label>
-    <sky-definition-list-value>{{ selectdBee.description}}</sky-definition-list-value></sky-definition-list-content>
-    <sky-definition-list-content>  <sky-definition-list-label>Genus</sky-definition-list-label>
-    <sky-definition-list-value>{{ selectdBee.genus}}</sky-definition-list-value></sky-definition-list-content>
-    <sky-definition-list-content>   <sky-definition-list-label>Species</sky-definition-list-label>
-    <sky-definition-list-value>{{ selectdBee.species}}</sky-definition-list-value></sky-definition-list-content>
-    <sky-definition-list-content>   <sky-definition-list-label *ngIf="selectdBee.deadly">DEADLY!!</sky-definition-list-label></sky-definition-list-content>
-      <sky-definition-list-content>   <ng-template *ngIf="selectdBee.alias"> <sky-definition-list-label>Alias</sky-definition-list-label>
-        <sky-definition-list-value>{{ selectdBee.alias}}</sky-definition-list-value>
-    </ng-template></sky-definition-list-content>
+    <sky-definition-list-label [title]="selectdBee?.id">Name</sky-definition-list-label>
+    <sky-definition-list-value>{{ selectdBee?.name}}</sky-definition-list-value>
+  </sky-definition-list-content>
+  <sky-definition-list-content>
+    <sky-definition-list-label>Description</sky-definition-list-label>
+    <sky-definition-list-value>{{ selectdBee?.description}}</sky-definition-list-value>
+  </sky-definition-list-content>
+  <sky-definition-list-content>
+    <sky-definition-list-label>Genus</sky-definition-list-label>
+    <sky-definition-list-value>{{ selectdBee?.genus}}</sky-definition-list-value>
+  </sky-definition-list-content>
+  <sky-definition-list-content>
+    <sky-definition-list-label>Species</sky-definition-list-label>
+    <sky-definition-list-value>{{ selectdBee?.species}}</sky-definition-list-value>
+  </sky-definition-list-content>
+  <sky-definition-list-content>
+    <sky-definition-list-label *ngIf="selectdBee?.deadly">DEADLY!!</sky-definition-list-label>
+  </sky-definition-list-content>
+  <sky-definition-list-content>
+    <ng-template *ngIf="selectdBee?.alias">
+      <sky-definition-list-label>Alias</sky-definition-list-label>
+      <sky-definition-list-value>{{ selectdBee?.alias}}</sky-definition-list-value>
+    </ng-template>
+  </sky-definition-list-content>
 
-    <sky-definition-list-content>    <sky-definition-list-label *ngIf="selectdBee.communal">Communal</sky-definition-list-label></sky-definition-list-content>
+  <sky-definition-list-content>
+    <sky-definition-list-label *ngIf="selectdBee?.communal">Communal</sky-definition-list-label>
+  </sky-definition-list-content>
 
-      <sky-definition-list-content>   <sky-definition-list-label *ngIf="selectdBee.endangered">Endangered</sky-definition-list-label></sky-definition-list-content>
+  <sky-definition-list-content>
+    <sky-definition-list-label *ngIf="selectdBee?.endangered">Endangered</sky-definition-list-label>
+  </sky-definition-list-content>
 
 </sky-definition-list>
-<img [src]="selectdBee.image_url" />
-
+<img [src]="selectdBee?.image_url" />

@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 import { BeeService } from '../../services/bee.service';
 import {
   SkyModalService,
-  SkyModalCloseArgs
+  SkyModalCloseArgs,
+  SkyWaitService
 } from '@blackbaud/skyux/dist/core';
 import { BeeEditComponent } from '../bee-edit/bee-edit.component';
 
@@ -19,18 +20,26 @@ export class BeeListComponent implements OnInit {
 
   public bees: Array<Bee> = [];
 
-  constructor(private beeService: BeeService, private modal: SkyModalService, private router: Router) { }
+  constructor(private beeService: BeeService,
+              private modal: SkyModalService,
+              private router: Router,
+              private waitSvc: SkyWaitService) { }
 
   public ngOnInit(): void {
     this.GetBees();
   }
 
   public GetBees() {
+    this.waitSvc.beginBlockingPageWait();
     this.beeService.getBees()
       .subscribe(bees => {
+        this.waitSvc.endBlockingPageWait();
         this.bees = bees;
       },
-        error => console.log(error));
+        error => {
+          this.waitSvc.endBlockingPageWait();
+          console.log(error);
+        });
   }
 
   public showBee(beeSelected: Bee) {
@@ -56,7 +65,6 @@ export class BeeListComponent implements OnInit {
     modalInstance.closed.subscribe((result: SkyModalCloseArgs) => {
       console.log(`Modal closed with reason: ${result.reason} and data: ${result.data}`);
     });
-
   }
 
   public CreateBee() {
@@ -71,9 +79,7 @@ export class BeeListComponent implements OnInit {
     modalInstance.closed.subscribe((result: SkyModalCloseArgs) => {
       if (result.reason === 'save') { this.GetBees(); }
     });
-
   }
-
 }
 
 export class BeeAddEditModalContext {
