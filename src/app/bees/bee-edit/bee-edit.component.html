@@ -1,0 +1,74 @@
+
+
+
+<sky-modal>
+  <sky-modal-header>
+    {{title}}
+  </sky-modal-header>
+  <sky-modal-content>
+    <form [formGroup]=beeForm>
+      <div class="form-group">
+        <label class="required">Name<sup>*</sup></label>
+        <input type="text" autocorrect="off" formControlName="name" class=" form-control">
+      </div>
+      <div class="form-group">
+        <label class="required">Description<sup>*</sup></label>
+        <input type="text" autocorrect="off" formControlName="description" class=" form-control">
+      </div>
+      <div class="form-group">
+        <label class="required">Genus<sup>*</sup></label>
+        <input type="text" autocorrect="off" formControlName="genus" class=" form-control">
+      </div>
+      <div class="form-group">
+        <label class="required">Species<sup>*</sup></label>
+        <input type="text" autocorrect="off" formControlName="species" class=" form-control">
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" formControlName="deadly" class="form-check-input">
+            Deadly
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" formControlName="communal" class="form-check-input">
+            Communal
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="checkbox" formControlName="endangered" class="form-check-input">
+            Endangered
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Alias</label>
+        <input type="text" autocorrect="off" formControlName="alias" class=" form-control">
+      </div>
+      <div class="form-group">
+        <label class="required">Image_url<sup>*</sup></label>
+        <input type="text" autocorrect="off" formControlName="image_url" class=" form-control">
+      </div>
+
+    </form>
+  </sky-modal-content>
+  <sky-modal-footer>
+    <button
+      type="button"
+      class="sky-btn sky-btn-primary"
+      (click)="SaveBee()">
+      Save
+    </button><button
+    type="button"
+    class="sky-btn sky-btn-primary"
+    (click)="instance.close()">
+    Cancel
+  </button>
+  </sky-modal-footer>
+</sky-modal>

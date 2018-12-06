@@ -1,0 +1,69 @@
+
+
+<table class="table table-hover"  *ngIf="bees">
+  <thead>
+    <tr>
+      <th></th>
+      <th scope="col">{{ 'bee_table_name_column_header' | skyAppResources }}</th>
+      <th scope="col">Species</th>
+      <th scope="col">Deadly</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let bee of bees"  (click)="showBee(bee)"
+   >
+    <td><i class="fas fa-edit" (click)="UpdateBee(bee); $event.stopPropagation();"></i></td>
+      <td>{{ bee.name }}</td>
+      <td>{{ bee.species }}</td>
+      <td>{{ bee.deadly?'Yes':'No'}}</td>
+      <td><i class="far fa-trash-alt" (click)="deleteBee(bee); $event.stopPropagation();"></i></td>
+    </tr>
+  </tbody>
+</table>
+<hr/>
+<button (click)="CreateBee()">Create</button>
+<!--
+
+<sky-list [data]="bees" [defaultView]="grid">
+  <sky-list-toolbar>
+    <sky-list-column-selector-action
+       [gridView]="grid"  >
+    </sky-list-column-selector-action>
+  </sky-list-toolbar>
+
+  <sky-list-view-grid fit="scroll" #grid>
+    <sky-grid-column
+      field="control"
+      [locked]="true"
+      [template]="customCellTemplate">
+    </sky-grid-column>
+    <sky-grid-column
+      field="name"
+      [locked]="true"
+      heading="{{ 'bee_table_name_column_header' | skyAppResources }}"
+      description="A numbered column">
+    </sky-grid-column>
+    <sky-grid-column
+      field="species"
+      heading="Species"
+      description="A fruit column">
+    </sky-grid-column>
+    <sky-grid-column
+      field="Deadly"
+      heading="deadly"
+      description="A sentence column"
+      [template]="deadlyTemplate">
+    </sky-grid-column>
+  </sky-list-view-grid>
+</sky-list>
+
+<ng-template
+  #deadlyTemplate
+  let-row="row"
+  let-value="value">
+  {{ value ?'Yes':'No'}}
+</ng-template>
+
+  -->

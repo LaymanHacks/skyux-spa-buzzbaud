@@ -1,0 +1,29 @@
+{
+  "mode": "easy",
+  "compileMode": "aot",
+  "a11y": true,
+  "auth": true,
+  "omnibar": {
+    "experimental": true,
+    "nav": {
+      "services": [
+        {
+          "title": "Buzzbaud",
+          "items": [
+            {
+              "title": "Home",
+              "route": "/"
+            },
+            {
+              "title": "Bees",
+              "route": "/bees"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "appSettings": {
+    "buzzbaudSvcUrl": "https://s21abzzbzapi01blkbapp01.sky.blackbaud.com/v1/"
+  }
+}
