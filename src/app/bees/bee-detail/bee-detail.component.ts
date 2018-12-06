@@ -17,18 +17,10 @@ export class BeeDetailComponent implements OnChanges {
   constructor(private service: BeeService) {
   }
 
-
-
   public ngOnChanges(changes: SimpleChanges): void {
 
     console.log(changes.selectedBeeId.currentValue);
     this.service.getBee(changes.selectedBeeId.currentValue).subscribe(x => this.selectdBee = x);
-    // if (this.bees.length > 0) {
-    //   let filteredBee =  this.bees.find(obj => obj.id === this.selectedBeeId);
-    //   if (filteredBee.length > 0 ) {
-    //     this.selectedBee = filteredBee[0];
-    //   }
-    // }
   }
 
 }
